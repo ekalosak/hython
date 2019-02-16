@@ -1,0 +1,8 @@
+.stack-work/
+hython.cabal
+*~
+
+*.swo
+*.swp
+*.pyc
+*.o
