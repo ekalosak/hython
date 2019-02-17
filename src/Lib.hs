@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Lib
-    ( someFunc, pythonSrc, runHello, MyType
+    ( runHello
     ) where
 
 import qualified Data.ByteString as BS
@@ -17,27 +17,21 @@ import GHC.Generics
 
 import Debug.Trace
 
-debug = traceM . show
 toWord = BS.head . CH.pack
 newline = toWord "\n"
 teststring = CH.pack "\nhello\nworld\n"
 stripNewline = BS.filter (/= newline)
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
-
 pythonSrc :: FilePath
 pythonSrc = "./src/hello.py"
 
-mine = MyType 2
+yieldEncode = yield . BL.toStrict . encode
 
 extractMyType = do
-  mx <- await
-  let x = fromMaybe BS.empty mx
-  -- let y = stripNewline x
-  debug x
-  -- debug y
-  yield x
+  Just x <- await
+  let y = stripNewline x
+  let mz = decodeStrict y :: Maybe MyType
+  maybe (yield BS.empty) yieldEncode mz
 
 runHello = run (
   python pythonSrc $|
