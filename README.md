@@ -1,4 +1,5 @@
 # hython
+[![CircleCI](https://circleci.com/gh/ekalosak/hython/tree/master.svg?style=svg&circle-token=68ad6fb98de4ff6b4b8cadb9398f282049cf5c4d)](https://circleci.com/gh/ekalosak/hython/tree/master)
 Various "hello world" level examples for wrapping python code in haskell.
 
 ## setup
