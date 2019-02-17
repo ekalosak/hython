@@ -3,9 +3,7 @@ Various "hello world" level examples for wrapping python code in haskell.
 
 ## setup
 0. install python3, ghc (glassgow haskell compiler), and stack (pip for ghc)
-1. in this directory, run:
-  1. `stack build`
-  2. `stack run`
+1. `stack run`
 
 ## entry point
 When you run `stack build`, the source in `app/Main.hs` is compiled as declared
