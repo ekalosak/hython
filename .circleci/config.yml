@@ -14,3 +14,11 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
+
+      - run:
+          name: Build the Haskell package
+          command: stack build
+
+      - run:
+          name: Test the Haskell package
+          command: stack test
