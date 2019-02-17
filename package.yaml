@@ -1,10 +1,10 @@
 name:                hython
 version:             0.1.0.0
-github:              "githubuser/hython"
+github:              "ekalosak/hython"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Eric Kalosa-Kenyon"
+maintainer:          "helloateric@gmail.com"
+copyright:           "2019 Eric Kalosa-Kenyon"
 
 extra-source-files:
 - README.md
@@ -21,6 +21,10 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- aeson
+- conduit
+- shell-conduit
+- bytestring
 
 library:
   source-dirs: src
