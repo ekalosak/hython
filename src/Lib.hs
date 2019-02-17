@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Lib
-    ( runHello
+    ( runHello, teststring, stripNewline, newline
     ) where
 
 import qualified Data.ByteString as BS
