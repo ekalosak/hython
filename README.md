@@ -3,8 +3,14 @@
 Various "hello world" level examples for wrapping python code in haskell.
 
 ## setup
-0. install python3, ghc (glassgow haskell compiler), and stack (pip for ghc)
+0. install python3.4, ghc (glassgow haskell compiler), pkg-config,
+  and stack (pip for ghc)
 1. `stack run`
+
+`find / -name 'python-3.4.pc' -print` and export that as `PKG_CONFIG_PATH` in
+your `~/.zshrc` (e.g. `export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig`)
+This allows the `cpython` binding in the haskell program to access the
+`pkg-config` declaration of the `python-3.4` requirement.
 
 ## entry point
 When you run `stack build`, the source in `app/Main.hs` is compiled as declared

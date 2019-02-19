@@ -37,7 +37,8 @@ packages:
 # Dependency packages to be pulled from upstream that are not in the resolver
 # using the same syntax as the packages field.
 # (e.g., acme-missiles-0.3)
-# extra-deps: []
+extra-deps:
+- cpython-3.4.0@sha256:7fdd6ecacaab4fa60d975e5a8f91fee6b07a80cf4936d9a407b3f64b9a1732ad
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

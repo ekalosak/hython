@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Lib
-    ( runHello, teststring, stripNewline, newline
+    ( printPyVersion, runHello, teststring, stripNewline, newline
     ) where
 
 import qualified Data.ByteString as BS
@@ -14,6 +14,7 @@ import Data.Conduit
 import Data.Conduit.Shell
 import Data.Maybe
 import GHC.Generics
+import qualified CPython as Py
 
 import Debug.Trace
 
@@ -33,10 +34,18 @@ extractMyType = do
   let mz = decodeStrict y :: Maybe MyType
   maybe (yield BS.empty) yieldEncode mz
 
-runHello = run (
-  python pythonSrc $|
-  conduit extractMyType
-  )
+runHello :: IO ()
+runHello = do
+  run (
+    python pythonSrc $|
+    conduit extractMyType
+    )
+
+printPyVersion :: IO ()
+printPyVersion = do
+  Py.initialize
+  ver <- Py.getVersion
+  print ver
 
 data MyType = MyType {foo :: Int} deriving (Show, Generic)
 instance FromJSON MyType
