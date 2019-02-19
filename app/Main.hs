@@ -9,6 +9,9 @@ main = do
   putStrLn "--- Piping json printed from a python program to a haskell type ---"
   runHello
   putStrLn "\n"
-  putStrLn "--- Running python functions through the C FFI ---"
+  putStrLn "--- Getting python version through the C FFI ---"
   printPyVersion
+  putStrLn "\n"
+  putStrLn "--- Running python hello world function through the C FFI ---"
+  importPyLib
   putStrLn "*** END"
