@@ -28,6 +28,9 @@ dependencies:
 - hspec
 - QuickCheck
 - cpython
+- directory
+- filepath
+- unix
 
 library:
   source-dirs: src

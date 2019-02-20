@@ -11,6 +11,7 @@ Various "hello world" level examples for wrapping python code in haskell.
 your `~/.zshrc` (e.g. `export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig`)
 This allows the `cpython` binding in the haskell program to access the
 `pkg-config` declaration of the `python-3.4` requirement.
+Also `export PYTHONPATH=$(pwd)/src`
 
 ## entry point
 When you run `stack build`, the source in `app/Main.hs` is compiled as declared

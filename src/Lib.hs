@@ -21,6 +21,10 @@ import qualified CPython.Types.Exception as Py
 import qualified CPython.Types as Py
 import qualified CPython.Types.Module as Py
 import System.IO (stdout)
+import System.Directory
+import System.FilePath
+import System.Environment (getEnvironment)
+import System.Posix.Env (putEnv)
 
 import Debug.Trace
 
@@ -53,17 +57,31 @@ printPyVersion = do
   ver <- Py.getVersion
   print ver
 
+setPythonPath :: IO ()
+setPythonPath = do
+  curpath <- getCurrentDirectory
+  let pythonpath = curpath </> "src"
+  let pathSet = "PYTHONPATH=" <> pythonpath
+  -- print pathSet
+  -- setEnv "PYTHONPATH" pythonpath
+  -- putEnv pathSet
+  run ( do
+    echo pathSet
+    shell $ "export " <> pathSet
+    )
+
 importPyLib :: IO ()
 importPyLib = do
+  -- setPythonPath -- NOTE: this doesn't actually export the envVar... weird
   Py.initialize
+  -- e <- getEnvironment
+  -- print e
   E.handle onException $ do
-    syst <- Py.importModule "sys"
-    syst_path <- Py.getAttribute syst =<< Py.toUnicode "path"
-    -- res0 <- Py.callArgs syst_path []
-    Py.print syst_path stdout
+    -- syst <- Py.importModule "sys"
+    -- syst_path <- Py.getAttribute syst =<< Py.toUnicode "path"
+    -- Py.print syst_path stdout
 
     hello <- Py.importModule "hello"
-    -- hello <- Py.importModule "src.hello"
     hello_world <- Py.getAttribute hello =<< Py.toUnicode "hello_world"
     res <- Py.callArgs hello_world []
     Py.print res stdout

@@ -11,7 +11,6 @@ main = do
   putStrLn "\n"
   putStrLn "--- Getting python version through the C FFI ---"
   printPyVersion
-  putStrLn "\n"
   putStrLn "--- Running python hello world function through the C FFI ---"
   importPyLib
   putStrLn "*** END"
