@@ -15,7 +15,8 @@ cpython.
 ### Todo
 1. Immediately, needs a comprehensive dockerfile for explicit instructions on
    finessing the python environment - those instructions are currently roughly
-   available in the `setup` section below.
+   available in the `setup` section below. (Note: the CI build is currently
+   failing because this dockerfile doesn't exist)
 2. Support for quickcheck etc. on bound python modules
 3. Type inference for python functions (leveraging GHC rather than python 3rd
    party)
