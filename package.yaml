@@ -27,6 +27,10 @@ dependencies:
 - bytestring
 - hspec
 - QuickCheck
+- cpython
+- directory
+- filepath
+- unix
 
 library:
   source-dirs: src
