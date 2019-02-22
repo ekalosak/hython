@@ -3,13 +3,11 @@ Various "hello world" level examples for wrapping python code in haskell.
 "Batteries included" python-haskell integration.
 
 ## purpose
-Haskell needs to do away with its difficulty fetish and bring people into the
-fold so they can hear the good word of type inference, lazy evaluation, and
-supportable code. To do so, we need to dovetail Haskell products into peoples'
-existing workflows in a "batteries included" way: by providing python
-integration.
+Haskell needs to do away with its fixation on being difficult. To do so, we need
+to dovetail Haskell products into peoples' existing workflows in a "batteries
+included" way: by providing python integration.
 
-### So far,
+### So far
 1. Supports piping serialized as json using shell-conduit out of the box.
 2. Supports python bindings through the common C Foreign Function Interface via
 cpython.
@@ -26,8 +24,6 @@ cpython.
 Setting up the python environment for this project is, as most python
 environments admittedly are, a bear. There's some explicit versioning and
 pkg-config munging to be done.
-
-### caveat to the caveat
 
 ## setup
 0. install python3.4, ghc (glassgow haskell compiler), pkg-config,
