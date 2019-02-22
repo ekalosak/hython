@@ -12,13 +12,13 @@ jobs:
           command: echo Hello, world.
 
       - run:
-          name: Run the Shakefile to build and lint
-          command: Shakefile.hs
-
-      - run:
           name: Build the Haskell package
           command: stack build
 
       - run:
           name: Test the Haskell package
           command: stack test
+
+      - run:
+          name: Run the Shakefile to build and lint
+          command: Shakefile.hs
