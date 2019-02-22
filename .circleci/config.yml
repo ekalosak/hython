@@ -2,22 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: fpco/stack-build:latest
+      - image: ekalosak/hython-primary:0.0.1
 
     steps:
       - checkout
-
-      - run:
-          name: Installing Python 3.4
-          command: add-apt-repository -y ppa:fkrull/deadsnakes && apt-get update && apt-get install python3.4
 
       - run:
           name: Greeting
           command: echo Hello, world.
 
       - run:
-          name: Print the Current Time
-          command: date
+          name: Run the Shakefile to build and lint
+          command: Shakefile.hs
 
       - run:
           name: Build the Haskell package
