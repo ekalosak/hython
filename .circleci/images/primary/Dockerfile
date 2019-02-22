@@ -15,6 +15,6 @@ RUN ./configure
 RUN make -j8
 RUN make install
 
-# Setup app workingdir
-RUN mkdir /app
-WORKDIR /app
+# # Setup app workingdir
+# RUN mkdir /app
+# WORKDIR /app
